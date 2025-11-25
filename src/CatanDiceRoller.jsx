@@ -89,6 +89,15 @@ export default function CatanDiceRoller() {
     return positions[num] || [];
   };
 
+  const cleanupScene = (sceneData) => {
+    if (!sceneData) return;
+    try {
+      sceneData.dispose();
+    } catch (e) {
+      // ignore
+    }
+  };
+
   // ---------- Centralized renderer factory ----------
   // ensures consistent renderer config (color space, toneMapping, size)
   const createRenderer = (canvas) => {
